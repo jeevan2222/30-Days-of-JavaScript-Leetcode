@@ -1,16 +1,20 @@
-/**
- * @param {number} n
- * @return {Function} counter
- */
-var createCounter = function (n) {
-  let num = n;
-  return function () {
-    return (num = num + 1);
-  };
-};
+function countCommonElements(a, b) {
+  const setA = new Set(a);
+  const setB = new Set(b);
 
-const counter = createCounter(10);
-counter(); // 10
-// counter(); // 11
-// counter(); // 12
-console.log(counter());
+  let commonCount = 0;
+  console.log(setA, typeof setA);
+  for (const char of setA) {
+    if (setB.has(char)) {
+      commonCount++;
+    }
+  }
+
+  return commonCount;
+}
+
+const a = "abcdefd";
+const b = "aemkd";
+
+const result = countCommonElements(a, b);
+console.log(result); // Output: 2
